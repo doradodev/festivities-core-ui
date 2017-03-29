@@ -1,0 +1,68 @@
+
+@import url(http://fonts.googleapis.com/css?family=Nunito:400,700);
+
+body {
+  background-color: #4c4f52;
+  font-family: 'Nunito', sans-serif;
+  font-size:14pt;
+
+}
+
+.festivity-card{
+
+    position: relative;
+    top: 0;
+    opacity: 1;
+    width:200px;  
+    float: left;
+    height: 200px;
+    background-color:#fff;
+    margin-right: 20px;
+    margin-left: 20px;  
+    margin-top: 20px;
+    margin-bottom: 20px;    
+    font-size: 18pt;    
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: 300;
+    align-items: center;
+}
+
+.wrapper{
+
+    display: table;
+    width:fit-content;
+
+}
+.row{
+    display: table-row;
+}
+
+.md-card-title{
+
+   width: 100%;
+   float: left;
+   line-height: 46px;
+   font-size: 34px;
+   font-weight: 700;
+   letter-spacing: 2px;
+   color: #ED2553;
+   position: relative;
+}
+
+.festivity-button{
+
+    color: #fff;
+    background-color: #f53d3d;
+    
+    
+    
+}
+
+.festivity-actions{
+
+    padding-left: 50px;
+    padding-top: 15px;
+}
