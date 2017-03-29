@@ -12,6 +12,8 @@ import {DataScrollerModule} from 'primeng/primeng';
 import { FestivitiesService } from './services/festivitiesService';
 import { HomePage } from '../app/pages/home.component';
 
+import { UpdateFestivity } from '../app/pages/update/update.component'
+
 //routes 
 import { RouterModule, Routes } from '@angular/router';
 import { APPROUTER } from './routes/routes';
@@ -27,7 +29,8 @@ import 'hammerjs';
     AppComponent,
     InitComponent,
     FestivityDetailsComponent,
-    HomePage
+    HomePage,
+    UpdateFestivity
   ],
   imports: [
     BrowserModule,

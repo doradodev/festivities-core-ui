@@ -1,9 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 
 import { Festivity } from '../models/festivitiesModel';
 
 import { FestivitiesService } from '../services/festivitiesService';
 
+import { Router } from '@angular/router';
+
+import {MdDialog, MdDialogConfig,MdDialogRef } from '@angular/material';
+
+import { UpdateFestivity } from '../pages/update/update.component';
 
 @Component({
   selector: 'page-home',
@@ -14,7 +19,13 @@ export class HomePage implements OnInit{
 
   festivities:Festivity[];
 
-  constructor(private festivityService:FestivitiesService) {
+  constructor(
+              private festivityService:FestivitiesService,
+              private router:Router,
+              public dialog:MdDialog,
+              public viewContainerRef:ViewContainerRef,
+              public dialogRef: MdDialogRef<any>
+              ) {
 
   }
 
@@ -30,5 +41,13 @@ console.log("entre a homepage");
 
 
     }
+
+   updateFestivity(_festivity:Festivity):void{
+    //this.router.navigate(['/festivityUpdate', _festivity.id ]);
+     
+
+    console.log(_festivity);
+    
+  }
 
 }
