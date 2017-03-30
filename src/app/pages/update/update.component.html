@@ -1,0 +1,11 @@
+<h2 md-dialog-title>Edit Festivity</h2>
+<md-input-container>
+  <input mdInput placeholder="Name">
+  <input mdInput placeholder="place">
+  <material-datepicker [(date)]="YY-MM-DD"></material-datepicker>
+  <material-datepicker [(date)]="YY-MM-DD"></material-datepicker>
+</md-input-container>
+<md-dialog-actions>
+  <button (click) = "updateFestivity(festivity)" class="festivity-button" md-fab><md-icon>check</md-icon></button>
+  <button (click) = "updateFestivity(festivity)" class="festivity-button" md-fab><md-icon>close</md-icon></button>
+</md-dialog-actions>

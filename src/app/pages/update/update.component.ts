@@ -6,7 +6,9 @@ import { FestivitiesService } from '../../services/festivitiesService';
 
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
-import {MdDialog} from '@angular/material';
+import { DatepickerModule } from 'angular2-material-datepicker'
+
+
 
 
 
@@ -24,18 +26,18 @@ export class UpdateFestivity{
     constructor(
                 private router:Router,
                 private route:ActivatedRoute,
-                private service: FestivitiesService,
-                public dialog:MdDialog
+                private service: FestivitiesService
+                
     ){ }
 
     ngOnInit(){      
         
-        console.log(+this.route.snapshot.params['id']);
+        //console.log(+this.route.snapshot.params['id']);
 
-        this.festivity.id = +this.route.snapshot.params['id'];  
+        //this.festivity.id = +this.route.snapshot.params['id'];  
 
-        console.log("entre a update"+this.festivity.id);
-
+        //console.log("entre a update"+this.festivity.id);
+        console.log(this.festivity);
         
         
 

@@ -23,8 +23,9 @@ export class HomePage implements OnInit{
               private festivityService:FestivitiesService,
               private router:Router,
               public dialog:MdDialog,
-              public viewContainerRef:ViewContainerRef,
-              public dialogRef: MdDialogRef<any>
+              public viewContainerRef:ViewContainerRef
+              
+              
               ) {
 
   }
@@ -44,9 +45,14 @@ console.log("entre a homepage");
 
    updateFestivity(_festivity:Festivity):void{
     //this.router.navigate(['/festivityUpdate', _festivity.id ]);
-     
-
-    console.log(_festivity);
+     let config = new MdDialogConfig();
+    config.viewContainerRef = this.viewContainerRef;
+    config.height = '300px';
+    config.width = '300px';
+     let dialogRef = this.dialog.open(UpdateFestivity, config);
+    
+    dialogRef.componentInstance.festivity = _festivity;
+    
     
   }
 

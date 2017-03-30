@@ -23,6 +23,8 @@ import { APPROUTER } from './routes/routes';
 
 import { MaterialModule } from '@angular/material';
 import 'hammerjs';
+import { DatepickerModule } from 'angular2-material-datepicker'
+
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import 'hammerjs';
     JsonpModule,    
     DataScrollerModule,
     RouterModule.forRoot(APPROUTER),
-    MaterialModule.forRoot()
+    MaterialModule.forRoot(),
+    DatepickerModule
   ],
   providers: [FestivitiesService],
   bootstrap: [InitComponent]
