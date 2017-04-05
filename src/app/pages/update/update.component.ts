@@ -21,7 +21,10 @@ import { DatepickerModule } from 'angular2-material-datepicker'
 
 export class UpdateFestivity{
 
-    festivity: Festivity;    
+    festivity: Festivity;
+    display:boolean=false;
+    value:Date;
+    value2:Date;        
 
     constructor(
                 private router:Router,
@@ -32,6 +35,7 @@ export class UpdateFestivity{
 
     ngOnInit(){      
         
+        this.display=true;
         //console.log(+this.route.snapshot.params['id']);
 
         //this.festivity.id = +this.route.snapshot.params['id'];  

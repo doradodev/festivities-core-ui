@@ -24,7 +24,14 @@ export class FestivitiesService{
                          .map((res:Response) => res.json())                        
                          .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 
-     }   
+     }
+
+     removeFestivity (id:number): Observable<Festivity[]> {
+                
+        return this._http.delete(`${this.apiUrl}${id}`) 
+                         .map((res:Response) => res.json()) 
+                         .catch((error:any) => Observable.throw(error.json().error || 'Server error')); 
+    }   
 
 
 }

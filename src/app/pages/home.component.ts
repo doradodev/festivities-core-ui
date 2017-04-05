@@ -56,4 +56,35 @@ console.log("entre a homepage");
     
   }
 
+  /*removeFestivity(_festivity:Festivity){
+
+    let confirm = this.alertCtrl.create({
+      title: 'Delete',
+      message: 'are you sure delete festivity?',
+      buttons: [
+        {
+          text: 'yes',
+          handler: () => {
+            this.festivityService.removeFestivity(_festivity.id)
+                          .subscribe(
+                                      result => console.log(result),
+                                      err => {
+                                      console.log(err);
+                                }
+                            );
+             this.navCtrl.push(HomePage);               
+          }
+        },
+        {
+          text: 'No',
+          handler: () => {
+            console.log('Agree clicked');
+          }
+        }
+      ]
+    });
+    confirm.present();    
+
+  }*/
+
 }
