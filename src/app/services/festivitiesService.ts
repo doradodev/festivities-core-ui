@@ -12,6 +12,7 @@ export class FestivitiesService{
 
     private headers = new Headers({'Content-Type': 'application/json', 'Accept': 'application/json'});
     private apiUrl = "http://localhost:8081/api/festivities/";
+    private options = new RequestOptions({ headers: this.headers });
     
 
     constructor(private _http:Http  ){
@@ -29,6 +30,13 @@ export class FestivitiesService{
      removeFestivity (id:number): Observable<Festivity[]> {
                 
         return this._http.delete(`${this.apiUrl}${id}`) 
+                         .map((res:Response) => res.json()) 
+                         .catch((error:any) => Observable.throw(error.json().error || 'Server error')); 
+    }
+
+       updateFestivity (_festivity: Festivity): Observable<Festivity[]> {
+                    
+        return this._http.put(`${this.apiUrl}${_festivity['id']}` , _festivity, this.options)
                          .map((res:Response) => res.json()) 
                          .catch((error:any) => Observable.throw(error.json().error || 'Server error')); 
     }   

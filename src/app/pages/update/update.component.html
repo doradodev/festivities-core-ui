@@ -10,19 +10,20 @@
   <button (click) = "updateFestivity(festivity)" class="festivity-button" md-fab><md-icon>close</md-icon></button>
 </md-dialog-actions-->
 
-<p-dialog header="Edit Festivity" [(visible)]="display" modal="modal" width="300" responsive="true" resizable="true"
-          height="600">
+<p-dialog class = "festivity-modal" header="Edit Festivity" [(visible)]="display" modal="modal" width="300" responsive="true" resizable="true">
     <md-input-container>
-    <input mdInput placeholder="Name" >    
+    <input mdInput placeholder="Name" [(ngModel)] = "festivityNew.name">    
   </md-input-container>
   <md-input-container>
-    <input mdInput placeholder="Place" >    
-  </md-input-container>
+    <input mdInput placeholder="Place" [(ngModel)] = "festivityNew.place">    
+  </md-input-container>  
   
+  <p-calendar placeholder = "Start Date" [(ngModel)] = "festivityNew.start"></p-calendar>
   
-  <p-calendar [(ngModel)]="value"></p-calendar>
+  <p-calendar  placeholder = "End Date" [(ngModel)] = "festivityNew.end"></p-calendar>
+  <md-dialog-actions class="festivity-actions" >
+  <button (click) = "updateFestivity(festivityNew)" class="festivity-button" md-fab><md-icon>check</md-icon></button>
   
-  <p-calendar [(ngModel)]="value2"></p-calendar>
-  
+</md-dialog-actions>
         
 </p-dialog>

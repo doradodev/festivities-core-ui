@@ -8,7 +8,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { DatepickerModule } from 'angular2-material-datepicker'
 
-
+import { ConfirmationService } from 'primeng/primeng';
 
 
 
@@ -24,12 +24,19 @@ export class UpdateFestivity{
     festivity: Festivity;
     display:boolean=false;
     value:Date;
-    value2:Date;        
+    value2:Date;
+    festivityNew = {
+        id :'',
+        name:'',
+        place:'',
+        start:'',
+        end:''
+    };        
 
     constructor(
                 private router:Router,
                 private route:ActivatedRoute,
-                private service: FestivitiesService
+                private festivityService: FestivitiesService
                 
     ){ }
 
@@ -47,6 +54,30 @@ export class UpdateFestivity{
 
     }
 
+    updateFestivity(_festivity:Festivity){
+
+        if(_festivity.name == '' || _festivity.place == '' || _festivity.start == null ||_festivity.end == null ){
+
+                window.alert("todos los campos deben ir");
+        }else{
+
+            _festivity.id= this.festivity.id;
+            this.festivityService.updateFestivity(_festivity)
+                         .subscribe(
+                                      result => console.log(result),
+                                      err => {                                    
+                                      console.log(err);
+                                }
+                            );
+
+        }
+
+        
+
+    }
+
 
 }
+
+
 

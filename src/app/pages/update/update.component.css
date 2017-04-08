@@ -1,7 +1,7 @@
 .festivity-button{
 
     color: #fff;
-    background-color: #f53d3d;   
+    background-color: #f53d3d;     
     
     
 }
@@ -10,4 +10,9 @@
 
     padding-left: 50px;
     padding-top: 15px;
+}
+
+.festivity-modal{
+
+    border-radius: 10px;
 }

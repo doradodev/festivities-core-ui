@@ -10,6 +10,8 @@ import {MdDialog, MdDialogConfig,MdDialogRef } from '@angular/material';
 
 import { UpdateFestivity } from '../pages/update/update.component';
 
+import { ConfirmationService } from 'primeng/primeng';
+
 @Component({
   selector: 'page-home',
   templateUrl: './home.component.html',
@@ -23,7 +25,8 @@ export class HomePage implements OnInit{
               private festivityService:FestivitiesService,
               private router:Router,
               public dialog:MdDialog,
-              public viewContainerRef:ViewContainerRef
+              public viewContainerRef:ViewContainerRef,
+              public confirmationService:ConfirmationService
               
               
               ) {
@@ -46,9 +49,7 @@ console.log("entre a homepage");
    updateFestivity(_festivity:Festivity):void{
     //this.router.navigate(['/festivityUpdate', _festivity.id ]);
      let config = new MdDialogConfig();
-    config.viewContainerRef = this.viewContainerRef;
-    config.height = '300px';
-    config.width = '300px';
+    config.viewContainerRef = this.viewContainerRef;    
      let dialogRef = this.dialog.open(UpdateFestivity, config);
     
     dialogRef.componentInstance.festivity = _festivity;
@@ -56,35 +57,23 @@ console.log("entre a homepage");
     
   }
 
-  /*removeFestivity(_festivity:Festivity){
+  removeFestivity(_festivity:Festivity) {
 
-    let confirm = this.alertCtrl.create({
-      title: 'Delete',
-      message: 'are you sure delete festivity?',
-      buttons: [
-        {
-          text: 'yes',
-          handler: () => {
-            this.festivityService.removeFestivity(_festivity.id)
+        console.log("entre a remove" +" "+ _festivity.id);
+        this.confirmationService.confirm({
+            message: 'Are you sure that you want to perform this action?',
+            accept: () => {
+
+                this.festivityService.removeFestivity(_festivity.id)
                           .subscribe(
                                       result => console.log(result),
                                       err => {
                                       console.log(err);
                                 }
                             );
-             this.navCtrl.push(HomePage);               
-          }
-        },
-        {
-          text: 'No',
-          handler: () => {
-            console.log('Agree clicked');
-          }
-        }
-      ]
-    });
-    confirm.present();    
-
-  }*/
+            }
+        });
+    }
+  
 
 }
