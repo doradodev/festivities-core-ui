@@ -28,7 +28,7 @@ import { DatepickerModule } from 'angular2-material-datepicker';
 //primeNg
 import { DialogModule } from 'primeng/primeng';
 import {CalendarModule} from 'primeng/primeng';
-import {ConfirmDialogModule,ConfirmationService} from 'primeng/primeng';
+import {ConfirmDialogModule,ConfirmationService, GrowlModule} from 'primeng/primeng';
 
 @NgModule({
   declarations: [
@@ -49,7 +49,8 @@ import {ConfirmDialogModule,ConfirmationService} from 'primeng/primeng';
     DatepickerModule,
     DialogModule,
     CalendarModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    GrowlModule
     
   ],
   providers: [FestivitiesService, ConfirmationService],

@@ -11,7 +11,7 @@ import { Festivity } from '../models/festivitiesModel'
 export class FestivitiesService{
 
     private headers = new Headers({'Content-Type': 'application/json', 'Accept': 'application/json'});
-    private apiUrl = "http://localhost:8081/api/festivities/";
+    private apiUrl = "http://54.233.177.58:8080/api/festivities/";
     private options = new RequestOptions({ headers: this.headers });
     
 

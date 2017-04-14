@@ -61,7 +61,9 @@ console.log("entre a homepage");
 
         console.log("entre a remove" +" "+ _festivity.id);
         this.confirmationService.confirm({
-            message: 'Are you sure that you want to perform this action?',
+            message: 'Do you want to delete this festivity?',
+            header: 'Delete Confirmation',
+            icon: 'fa fa-trash',
             accept: () => {
 
                 this.festivityService.removeFestivity(_festivity.id)
@@ -71,6 +73,10 @@ console.log("entre a homepage");
                                       console.log(err);
                                 }
                             );
+                            console.log("entre a accept");
+                 
+                           
+                        
             }
         });
     }

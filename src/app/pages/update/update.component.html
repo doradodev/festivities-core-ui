@@ -10,6 +10,7 @@
   <button (click) = "updateFestivity(festivity)" class="festivity-button" md-fab><md-icon>close</md-icon></button>
 </md-dialog-actions-->
 
+<p-growl [value]="msgs"></p-growl>
 <p-dialog class = "festivity-modal" header="Edit Festivity" [(visible)]="display" modal="modal" width="300" responsive="true" resizable="true">
     <md-input-container>
     <input mdInput placeholder="Name" [(ngModel)] = "festivityNew.name">    
@@ -27,3 +28,5 @@
 </md-dialog-actions>
         
 </p-dialog>
+
+

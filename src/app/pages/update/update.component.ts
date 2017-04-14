@@ -8,7 +8,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { DatepickerModule } from 'angular2-material-datepicker'
 
-import { ConfirmationService } from 'primeng/primeng';
+import { ConfirmationService, GrowlModule,Message } from 'primeng/primeng';
 
 
 
@@ -31,7 +31,9 @@ export class UpdateFestivity{
         place:'',
         start:'',
         end:''
-    };        
+        
+    };
+    msgs: Message[] = [];        
 
     constructor(
                 private router:Router,
@@ -56,19 +58,28 @@ export class UpdateFestivity{
 
     updateFestivity(_festivity:Festivity){
 
-        if(_festivity.name == '' || _festivity.place == '' || _festivity.start == null ||_festivity.end == null ){
+        console.log(_festivity);
+        if(_festivity.name == '' || _festivity.place == '' || isNaN(_festivity.start) || isNaN(_festivity.end) ){
 
-                window.alert("todos los campos deben ir");
+                this.msgs = [];
+                this.msgs.push({severity:'warn', summary:'Warn Message', detail:'Todos los campos son obligatorios'});
+                    
+                
         }else{
-
+            this.msgs = [];
             _festivity.id= this.festivity.id;
+            console.log(_festivity.id);
             this.festivityService.updateFestivity(_festivity)
                          .subscribe(
                                       result => console.log(result),
                                       err => {                                    
                                       console.log(err);
+                                      
+                this.msgs.push({severity:'error', summary:'Error Message', detail:'No se pudo Actualizar'});
                                 }
                             );
+               this.msgs.push({severity:'success', summary:'Success Message', detail:'Se Guardo correctamente'});             
+
 
         }
 
