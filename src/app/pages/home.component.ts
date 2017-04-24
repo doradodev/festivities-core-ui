@@ -58,8 +58,7 @@ console.log("entre a homepage");
   }
 
   removeFestivity(_festivity:Festivity) {
-
-        console.log("entre a remove" +" "+ _festivity.id);
+        
         this.confirmationService.confirm({
             message: 'Do you want to delete this festivity?',
             header: 'Delete Confirmation',
@@ -73,13 +72,14 @@ console.log("entre a homepage");
                                       console.log(err);
                                 }
                             );
-                            console.log("entre a accept");
+                            
                  
                            
                         
             }
         });
-    }
+        
+    }    
   
 
 }

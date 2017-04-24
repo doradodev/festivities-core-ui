@@ -6,6 +6,8 @@ import { FestivitiesService } from '../../services/festivitiesService';
 
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+
 import { DatepickerModule } from 'angular2-material-datepicker'
 
 import { ConfirmationService, GrowlModule,Message } from 'primeng/primeng';
@@ -33,12 +35,15 @@ export class UpdateFestivity{
         end:''
         
     };
-    msgs: Message[] = [];        
+    msgs: Message[] = [];
+    userform: FormGroup;
+    submitted: boolean;        
 
     constructor(
                 private router:Router,
                 private route:ActivatedRoute,
-                private festivityService: FestivitiesService
+                private festivityService: FestivitiesService,
+                private fb: FormBuilder
                 
     ){ }
 
@@ -50,6 +55,12 @@ export class UpdateFestivity{
         //this.festivity.id = +this.route.snapshot.params['id'];  
 
         //console.log("entre a update"+this.festivity.id);
+        this.userform = this.fb.group({
+            'name': new FormControl('', Validators.required),
+            'place': new FormControl('', Validators.required),
+            'start': new FormControl('', Validators.required),
+            'end': new FormControl('', Validators.required)
+        });
         console.log(this.festivity);
         
         
@@ -85,6 +96,11 @@ export class UpdateFestivity{
 
         
 
+    }
+    onSubmit(value: string) {
+        this.submitted = true;
+        this.msgs = [];
+        this.msgs.push({severity:'info', summary:'Success', detail:'Form Submitted'});
     }
 
 

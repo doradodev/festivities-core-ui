@@ -66,3 +66,40 @@ body {
     padding-left: 50px;
     padding-top: 15px;
 }
+.md-card-content{
+
+
+}
+.ui-button-text.ui-c{
+
+    background-color: #f53d3d;
+
+}
+
+.ui-confirmdialog{
+
+    border-radius: 50px;
+    background-color: #f53d3d;
+
+}
+
+.ui-button:focus, .ui-widget-content .ui-button:enabled:hover, .ui-widget-content .ui-button:focus, .ui-button:enabled:hover, .ui-button:focus {
+    border: 1px solid #f53d3f;
+    background: #f53d3f;
+    outline: 0 none;
+    color: #ffffff;
+}
+
+.ui-widget-header .ui-button, .ui-widget-content .ui-button, .ui-button {
+    border: 1px solid #f53d3d;
+    /* color: #FFFFFF; */
+    background: #f53d3d;
+    -webkit-transition: background-color .2s;
+    transition: background-color .2s;
+}
+
+.ui-dialog.ui-confirmdialog.ui-widget.ui-widget-content.ui-corner-all.ui-shadow{
+
+    border-radius: 10px;
+
+}
